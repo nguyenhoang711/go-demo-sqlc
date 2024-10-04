@@ -1,0 +1,16 @@
+basePath: /v1/2024
+host: localhost:8002
+info:
+  contact:
+    email: hoangnguyendang777@gmail.com
+    name: Tips Go
+    url: github.com/hoangnguyen/demosqlc
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: github.com/hoangnguyen/demosqlc
+  title: Swagger Demo SQLC API
+  version: 1.0.0
+paths: {}
+swagger: "2.0"

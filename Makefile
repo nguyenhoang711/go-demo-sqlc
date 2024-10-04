@@ -2,7 +2,7 @@
 APP_NAME = demosqlc
 
 # Define the environment (default is 'dev')
-ENV ?= dev
+ENV ?= local
 
 run-local:
 	@echo "Running with environment: $(ENV)"
@@ -10,4 +10,4 @@ run-local:
 gen-proto:
 	cd proto && sh gen.sh
 gen-swagger:
-	swag init
+	swag init -g ./cmd/demosqlc/main.go ./cmd/swag/docs

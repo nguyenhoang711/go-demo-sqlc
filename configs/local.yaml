@@ -1,0 +1,20 @@
+server:
+  port: 8002
+mysql:
+  host: 172.20.222.101
+  # host: 127.0.0.1
+  port: 3306
+  username: root
+  password: 123456
+  # password: HaUINumber1
+  dbname: shopdevgo
+  maxIdleConns: 10
+  maxOpenConns: 50
+  connMaxLifeTime: 3600
+logger:
+  log_level: debug
+  file_log_name: "./logs/dev.xxx.log"
+  max_size: 500
+  max_backups: 3
+  max_age: 28
+  compress: true
