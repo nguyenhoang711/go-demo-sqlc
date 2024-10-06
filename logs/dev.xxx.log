@@ -1,6 +1,0 @@
-{"level":"INFO","ts":"2024-10-04T16:19:36.364+0700","caller":"initialize/run.go:18","msg":"Config Log Ok!!!","config":"success"}
-{"level":"INFO","ts":"2024-10-04T16:55:46.218+0700","caller":"initialize/run.go:19","msg":"Config Log Ok!!!","config":"success"}
-{"level":"INFO","ts":"2024-10-04T16:57:35.965+0700","caller":"initialize/run.go:19","msg":"Config Log Ok!!!","config":"success"}
-{"level":"INFO","ts":"2024-10-04T16:58:55.614+0700","caller":"initialize/run.go:19","msg":"Config Log Ok!!!","config":"success"}
-{"level":"INFO","ts":"2024-10-04T17:00:27.510+0700","caller":"initialize/run.go:19","msg":"Config Log Ok!!!","config":"success"}
-{"level":"INFO","ts":"2024-10-04T17:01:45.343+0700","caller":"initialize/run.go:19","msg":"Config Log Ok!!!","config":"success"}
