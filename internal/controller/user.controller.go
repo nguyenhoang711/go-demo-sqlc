@@ -1,10 +1,11 @@
 package controller
 
 import (
-	"net/http"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 	"github.com/hoangnguyen/demo-sqlc/internal/service"
+	"github.com/hoangnguyen/demo-sqlc/pkg/response"
 )
 
 type UserController struct {
@@ -19,9 +20,10 @@ func NewUserController() *UserController {
 
 func (uc *UserController) GetUserById(c *gin.Context) {
 	uid := c.Query("uid")
-	c.JSON(http.StatusOK, gin.H{
-		"message": "pong.hhh.oing" + uc.userService.GetUserById(uid),
-		"uid": uid,
-		"users": []string{"cr7", "m10", "anomystick"},
-	})
+	response.SuccessResponse(c, 20001, fmt.Sprintf("pong.hhh.ping.%s", uc.userService.GetUserById(uid)))
+	// c.JSON(http.StatusOK, gin.H{
+	// 	"message": "pong.hhh.oing" + uc.userService.GetUserById(uid),
+	// 	"uid": uid,
+	// 	"users": []string{"cr7", "m10", "anomystick"},
+	// })
 }
