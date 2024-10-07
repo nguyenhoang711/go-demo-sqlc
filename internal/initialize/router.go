@@ -1,16 +1,41 @@
 package initialize
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/hoangnguyen/demo-sqlc/internal/controller"
+	"github.com/hoangnguyen/demo-sqlc/internal/middlewares"
 )
 
+func AA() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		fmt.Println("Before --> AA")
+		ctx.Next()
+		fmt.Println("After --> AA")
+	}
+} 
+
+func BB() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		fmt.Println("Before --> BB")
+		ctx.Next()
+		fmt.Println("After --> BB")
+	}
+} 
+
+func CC() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		fmt.Println("Before --> CC")
+		ctx.Next()
+		fmt.Println("After --> CC")
+	}
+} 
 func InitRouter() *gin.Engine {
 	r := gin.Default() //tao 1 instance cua gin (middleware, version, etc ...)
 	//use the middleware
-	// r.Use(AA(), BB(), CC)
+	r.Use(middlewares.AuthenMiddleware(), BB(), CC())
 	v1 := r.Group("/v1/2024")
 	{
 		v1.GET("/ping", Pong)          // /v1/2024/ping
