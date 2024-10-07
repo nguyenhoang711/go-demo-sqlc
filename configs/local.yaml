@@ -1,8 +1,8 @@
 server:
   port: 8002
 mysql:
-  host: 172.20.222.101
-  # host: 127.0.0.1
+  # host: 172.20.222.101
+  host: 127.0.0.1
   port: 3306
   username: root
   password: 123456
