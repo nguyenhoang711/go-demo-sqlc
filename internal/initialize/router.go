@@ -7,6 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/hoangnguyen/demo-sqlc/internal/controller"
 	"github.com/hoangnguyen/demo-sqlc/internal/middlewares"
+	"github.com/hoangnguyen/demo-sqlc/internal/repo"
+	"github.com/hoangnguyen/demo-sqlc/internal/service"
 )
 
 func AA() gin.HandlerFunc {
@@ -36,6 +38,10 @@ func InitRouter() *gin.Engine {
 	r := gin.Default() //tao 1 instance cua gin (middleware, version, etc ...)
 	//use the middleware
 	r.Use(middlewares.AuthenMiddleware(), BB(), CC())
+	//non-dependency
+	userRepoNonDependency := repo.NewUSerRepo()
+	userServiceNonDependency := service.NewUserService(userRepoNonDependency)
+	userHandlerNonDependency := controller.NewUserController(userServiceNonDependency)
 	v1 := r.Group("/v1/2024")
 	{
 		v1.GET("/ping", Pong)          // /v1/2024/ping
@@ -44,7 +50,8 @@ func InitRouter() *gin.Engine {
 
 	v2 := r.Group("/v2/2024")
 	{
-		v2.GET("/ping", controller.NewUserController().GetUserById) // /v2/2024/ping
+		// v2.GET("/ping", controller.NewUserController().GetUserById) // /v2/2024/ping
+		v2.GET("/ping", userHandlerNonDependency.Register) // /v2/2024/ping
 	}
 
 	return r

@@ -1,14 +1,28 @@
 package repo
 
-import "fmt"
+// type UserRepo struct {
+// }
 
-type UserRepo struct {
+// func NewUserRepo() *UserRepo {
+// 	return &UserRepo{}
+// }
+
+// func(ur *UserRepo) GetUserDetail(id string) string {
+// 	return fmt.Sprintf("Tips %s", id)
+// }
+
+// INTERFACE_VERSION
+type IUserRepository interface {
+	GetUserByGmail(email string) bool
 }
 
-func NewUserRepo() *UserRepo {
-	return &UserRepo{}
+type userRepository struct{}
+
+func NewUSerRepo() IUserRepository {
+	return &userRepository{}
 }
 
-func(ur *UserRepo) GetUserDetail(id string) string {
-	return fmt.Sprintf("Tips %s", id)
+// GetUserByGmail implements IUserRepository.
+func (ur *userRepository) GetUserByGmail(email string) bool {
+	return false
 }
