@@ -5,10 +5,11 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/hoangnguyen/demo-sqlc/internal/controller"
+	// "github.com/hoangnguyen/demo-sqlc/internal/controller"
 	"github.com/hoangnguyen/demo-sqlc/internal/middlewares"
-	"github.com/hoangnguyen/demo-sqlc/internal/repo"
-	"github.com/hoangnguyen/demo-sqlc/internal/service"
+	// "github.com/hoangnguyen/demo-sqlc/internal/repo"
+	// "github.com/hoangnguyen/demo-sqlc/internal/service"
+	"github.com/hoangnguyen/demo-sqlc/internal/wire"
 )
 
 func AA() gin.HandlerFunc {
@@ -39,9 +40,10 @@ func InitRouter() *gin.Engine {
 	//use the middleware
 	r.Use(middlewares.AuthenMiddleware(), BB(), CC())
 	//non-dependency
-	userRepoNonDependency := repo.NewUSerRepo()
-	userServiceNonDependency := service.NewUserService(userRepoNonDependency)
-	userHandlerNonDependency := controller.NewUserController(userServiceNonDependency)
+	// userRepoNonDependency := repo.NewUSerRepo()
+	// userServiceNonDependency := service.NewUserService(userRepoNonDependency)
+	// userHandlerNonDependency := controller.NewUserController(userServiceNonDependency)
+	userController, _ := wire.InitUserController()
 	v1 := r.Group("/v1/2024")
 	{
 		v1.GET("/ping", Pong)          // /v1/2024/ping
@@ -51,7 +53,7 @@ func InitRouter() *gin.Engine {
 	v2 := r.Group("/v2/2024")
 	{
 		// v2.GET("/ping", controller.NewUserController().GetUserById) // /v2/2024/ping
-		v2.GET("/ping", userHandlerNonDependency.Register) // /v2/2024/ping
+		v2.GET("/ping", userController.Register) // /v2/2024/ping
 	}
 
 	return r
