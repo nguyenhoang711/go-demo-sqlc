@@ -1,4 +1,4 @@
-@baseUrl=http://localhost:8002/v1/2024
+@baseUrl=http://localhost:8002/v2/2024
 
 ### User registration
 POST {{baseUrl}}/user/register

@@ -16,7 +16,7 @@ func Run() *gin.Engine{
     }
 	LoadConfig(env)
 	InitLogger()
-	InitMysql()
+	InitMysqlc()
 	InitRedis()
 	global.Logger.Info("Config Log Ok!!!", zap.String("config", "success"))
 

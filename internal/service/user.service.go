@@ -74,7 +74,10 @@ func (us *userService) Register(email string, purpose string) int {
 	}
 	
 	// 4. send Email OTP
-	err = sendto.SendTextEmailOtp([]string{email}, "phuocnt.hutech@gmail.com", strconv.Itoa(otp))
+	// err = sendto.SendTextEmailOtp([]string{email}, "phuocnt.hutech@gmail.com", strconv.Itoa(otp))
+	err = sendto.SendTemplateEmailOtp([]string{email}, "phuocnt.hutech@gmail.com", "otp-auth.html", map[string]interface{}{
+		"otp": strconv.Itoa(otp),
+	})
 	if err != nil {
 		global.Logger.Error("Error sending email otp::", zap.Error(err))
 		return response.ErrSendEmailOTPFail

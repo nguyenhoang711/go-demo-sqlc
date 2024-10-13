@@ -34,7 +34,7 @@ func NewUSerRepo() IUserRepository {
 // GetUserByGmail implements IUserRepository.
 func (up *userRepository) GetUserByGmail(email string) bool {
 	// SELECT * FROM user WHERE email = ? LIMIT 1
-	// row := global.Mdb.Table(TableNameGoCrmUser).Where("usr_email = ?", email).First(&model.PreGoCrmUserC)
+	// row := global.Mdb.Table(TableNameGoCrmUser).Where("usr_email = ?", email).First(&model.GoCrmUser{}).RowsAffected
 	user, err := up.sqlc.GetUserByEmailSQLC(ctx, email)
 	if err != nil {
 		return false
