@@ -1,5 +1,10 @@
 package repo
 
+import (
+	"github.com/hoangnguyen/demo-sqlc/global"
+	model "github.com/hoangnguyen/demo-sqlc/internal/models"
+)
+
 // type UserRepo struct {
 // }
 
@@ -16,13 +21,23 @@ type IUserRepository interface {
 	GetUserByGmail(email string) bool
 }
 
-type userRepository struct{}
+type userRepository struct{
+	sqlc *model.Queries
+}
 
 func NewUSerRepo() IUserRepository {
-	return &userRepository{}
+	return &userRepository{
+		sqlc: model.New(global.Mdbc),
+	}
 }
 
 // GetUserByGmail implements IUserRepository.
-func (ur *userRepository) GetUserByGmail(email string) bool {
-	return false
+func (up *userRepository) GetUserByGmail(email string) bool {
+	// SELECT * FROM user WHERE email = ? LIMIT 1
+	// row := global.Mdb.Table(TableNameGoCrmUser).Where("usr_email = ?", email).First(&model.PreGoCrmUserC)
+	user, err := up.sqlc.GetUserByEmailSQLC(ctx, email)
+	if err != nil {
+		return false
+	}
+	return user.UsrID != 0
 }

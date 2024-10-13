@@ -11,6 +11,7 @@ import (
 func InitUserController() (*controller.UserController, error) {
 	wire.Build(
 		repo.NewUSerRepo,
+		repo.NewUserAuthRepository,
 		service.NewUserService,
 		controller.NewUserController,
 	)

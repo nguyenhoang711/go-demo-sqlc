@@ -3,8 +3,11 @@ package controller
 import (
 	// "fmt"
 
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hoangnguyen/demo-sqlc/internal/service"
+	"github.com/hoangnguyen/demo-sqlc/internal/vo"
 	"github.com/hoangnguyen/demo-sqlc/pkg/response"
 )
 
@@ -43,6 +46,11 @@ func NewUserController(
 	}
 }
 func (uc *UserController) Register(c *gin.Context) {
-	res := uc.userService.Register("", "")
+	var params vo.UserRegistrationRequest
+	if err := c.ShouldBindJSON(&params); err != nil {
+  		response.ErrorResponse(c, response.ErrCodeParamInvalid)
+	}
+	fmt.Printf("Email params: %s", params.Email)
+	res := uc.userService.Register(params.Email, params.Purpose)
 	response.SuccessResponse(c, res, nil)
 }
