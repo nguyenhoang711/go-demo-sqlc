@@ -1,4 +1,4 @@
-@baseUrl=http://localhost:8002/v2/2024
+@baseUrl=http://localhost:8004/v1/2024
 
 ### User registration
 POST {{baseUrl}}/user/register
@@ -8,3 +8,6 @@ Content-Type: application/json
   "email": "penguinnguyen117@gmail.com",
   "purpose": "test"
 }
+
+### Test status
+GET {{baseUrl}}/ping

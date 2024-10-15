@@ -9,8 +9,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-func LoadConfig(env string) {
-	yamlFile, err := os.ReadFile(fmt.Sprintf("./configs/%s.yaml", env))
+func LoadConfig() {
+	// yamlFile, err := os.ReadFile(fmt.Sprintf("./configs/%s.yaml", env))
+	yamlFile, err := os.ReadFile("./configs/local.yaml")
 	if err != nil {
         log.Fatalf("Error reading YAML file: %v", err)
     }

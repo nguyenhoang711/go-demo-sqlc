@@ -2,12 +2,12 @@ server:
   port: 8002
 mysql:
   # host: 172.20.222.101
-  host: 127.0.0.1
+  host: mydb #127.0.0.1
   port: 3306
   username: root
   password: 123456
   # password: HaUINumber1
-  dbname: shopdevgo
+  dbname: dev_go #shopdevgo
   maxIdleConns: 10
   maxOpenConns: 50
   connMaxLifeTime: 3600
@@ -19,7 +19,7 @@ logger:
   max_age: 28
   compress: true
 redis:
-  host: 127.0.0.1
+  host: rdb #127.0.0.1
   port: 6379
   password:
   database: 0

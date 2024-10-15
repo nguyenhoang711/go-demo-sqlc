@@ -2,7 +2,7 @@
 APP_NAME = demosqlc
 
 # Define the environment (default is 'dev')
-ENV ?= local
+# ENV ?= local
 
 # these are the default values
 GOOSE_DRIVER ?= mysql
@@ -10,8 +10,11 @@ GOOSE_DBSTRING= "root:123456@tcp(127.0.0.1:3306)/dev_go"
 GOOSE_MIGRATION_DIR ?= sql/schema
 
 run-local:
-	@echo "Running with environment: $(ENV)"
-	ENV=$(ENV) go run ./cmd/$(APP_NAME)
+	go run ./cmd/demosqlc
+# go run ./cmd/$(APP_NAME)
+
+# @echo "Running with environment: $(ENV)"
+# ENV=$(ENV) go run ./cmd/$(APP_NAME)
 gen-proto:
 	cd proto && sh gen.sh
 gen-swagger:
