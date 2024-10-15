@@ -2,7 +2,7 @@ server:
   port: 8002
 mysql:
   # host: 172.20.222.101
-  host: mydb #127.0.0.1
+  host: mysql_container #127.0.0.1
   port: 3306
   username: root
   password: 123456
@@ -19,7 +19,7 @@ logger:
   max_age: 28
   compress: true
 redis:
-  host: rdb #127.0.0.1
+  host: redis_container #127.0.0.1
   port: 6379
   password:
   database: 0

@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:8004/v1/2024
-
+@baseUrl2=http://localhost:8008/v1/2024
 ### User registration
 POST {{baseUrl}}/user/register
 Content-Type: application/json
@@ -11,3 +11,6 @@ Content-Type: application/json
 
 ### Test status
 GET {{baseUrl}}/ping
+
+### Test docker-compose build
+GET {{baseUrl2}}/ping
