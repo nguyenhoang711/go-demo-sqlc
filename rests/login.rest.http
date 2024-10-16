@@ -1,0 +1,9 @@
+@baseUrl=http://lcoalhost:8002/v2/2024
+
+### User Registration
+Content-Type: application/json
+
+{
+  "email": "penguinnguyen117@gmail.com",
+  "purpose": "test"
+}

@@ -16,6 +16,7 @@ func Run() *gin.Engine{
 	InitLogger()
 	InitMysqlc()
 	InitRedis()
+	InitServiceInterface()
 	global.Logger.Info("Config Log Ok!!!", zap.String("config", "success"))
 
 	r := InitRouter()

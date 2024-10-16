@@ -9,6 +9,7 @@ import (
 	// "github.com/hoangnguyen/demo-sqlc/internal/middlewares"
 	// "github.com/hoangnguyen/demo-sqlc/internal/repo"
 	// "github.com/hoangnguyen/demo-sqlc/internal/service"
+	"github.com/hoangnguyen/demo-sqlc/internal/controller/account"
 	"github.com/hoangnguyen/demo-sqlc/internal/wire"
 )
 
@@ -55,6 +56,7 @@ func InitRouter() *gin.Engine {
 	{
 		// v2.GET("/ping", controller.NewUserController().GetUserById) // /v2/2024/ping
 		v2.POST("/user/register", userController.Register) // /v2/2024/ping
+		v2.POST("/user/login", account.Login.Login)
 	}
 
 	return r
