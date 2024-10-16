@@ -1,6 +1,7 @@
-@baseUrl=http://lcoalhost:8002/v2/2024
+@baseUrl=http://localhost:8002/v2/2024
 
 ### User Registration
+POST {{baseUrl}}/user/login
 Content-Type: application/json
 
 {
