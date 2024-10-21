@@ -2,6 +2,7 @@
 
 ### User Registration
 POST {{baseUrl}}/user/login
+Authorization: valid-token
 Content-Type: application/json
 
 {

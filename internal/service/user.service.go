@@ -62,7 +62,7 @@ func (us *userService) Register(email string, purpose string) int {
 
 	// 2. new OTP ...
 	otp := random.GenerateSixDigitOtp()
-	if purpose == "TEST_USER" {
+	if purpose == "test" {
 		otp = 123456
 	}
 	fmt.Printf("Otp test is %d\n", otp)

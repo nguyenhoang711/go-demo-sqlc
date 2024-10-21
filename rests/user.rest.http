@@ -1,7 +1,9 @@
 @baseUrl=http://localhost:8004/v1/2024
+@baseUrl3=http://localhost:8002/v2/2024
 @baseUrl2=http://localhost:8008/v1/2024
 ### User registration
-POST {{baseUrl}}/user/register
+POST {{baseUrl3}}/user/register
+Authorization: valid-token
 Content-Type: application/json
 
 {
@@ -10,7 +12,9 @@ Content-Type: application/json
 }
 
 ### Test status
-GET {{baseUrl}}/ping
+GET {{baseUrl3}}/ping
+Authorization: valid-token
+Content-Type: application/json
 
 ### Test docker-compose build
 GET {{baseUrl2}}/ping

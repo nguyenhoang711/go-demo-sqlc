@@ -18,6 +18,7 @@ func NewUserLoginImpl(r *model.Queries) *sUserLogin {
 
 // implement the IUserLogin interface here
 func (s *sUserLogin) Login(ctx context.Context) error {
+	
 	return nil
 }
 

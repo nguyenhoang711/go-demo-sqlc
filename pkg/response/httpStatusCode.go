@@ -10,6 +10,9 @@ const (
 	
 	// user
 	ErrCodeUserEmailExist = 20005 // user email exits
+
+	//conflict
+	ErrCodeConflict = 40005 // internal server error
 )
 
 // message
@@ -21,6 +24,7 @@ func ErrMessageDict() func(int) string {
 		ErrIOTPInvalid: "OTP IS NOT VALID",
 		ErrSendEmailOTPFail: "Send email otp failed",
 		ErrCodeUserEmailExist: "user has already registered",
+		ErrCodeConflict: "Internal server error",
 	}
 
 	return func(key int) string {
