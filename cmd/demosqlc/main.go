@@ -3,7 +3,7 @@ package main
 import "github.com/hoangnguyen/demo-sqlc/internal/initialize"
 import ginSwagger "github.com/swaggo/gin-swagger" // gin-swagger middleware
 import swaggerFiles "github.com/swaggo/files" // swagger embed files
-import  _ "github.com/hoangnguyen/demo-sqlc/docs"
+import  _ "github.com/hoangnguyen/demo-sqlc/cmd/swag/docs"
 
 // @title           Swagger Demo SQLC API
 // @version         1.0.0

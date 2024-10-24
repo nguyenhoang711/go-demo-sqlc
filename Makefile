@@ -27,8 +27,9 @@ run-local:
 # ENV=$(ENV) go run ./cmd/$(APP_NAME)
 gen-proto:
 	cd proto && sh gen.sh
+
 gen-swagger:
-	swag init -g ./cmd/demosqlc/main.go ./cmd/swag/docs
+	swag init -g ./cmd/demosqlc/main.go -o ./cmd/swag/docs
 
 up-gen:
 	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) up
